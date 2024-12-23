@@ -7,16 +7,15 @@ component "s3" {
   source = "./modules/s3"
 
   inputs = {
-    region      = each.value
-    bucket_name = "${var.bucket_name}-${each.value}"
-    tags = merge(var.default_tags, {
-      Name      = "${var.bucket_name}-${each.value}"
-    })
+    region            = each.value
+    bucket_name       = var.bucket_name
+    tags              = var.default_tags
     enable_versioning = var.enable_versioning
     enable_encryption = var.enable_encryption
   }
 
   providers = {
-    aws = provider.aws.configurations[each.value]
+    aws    = provider.aws.configurations[each.value]
+    random = provider.random.this
   }
 }

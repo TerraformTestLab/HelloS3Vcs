@@ -1,6 +1,14 @@
+resource "random_pet" "s3_bucket_name" {
+  prefix = var.bucket_name
+  length = 2
+}
+
 resource "aws_s3_bucket" "main" {
-  bucket = var.bucket_name
-  tags = var.tags
+  bucket = "${random_pet.s3_bucket_name.id}-${var.region}"
+  tags = merge(
+    {
+        Name = "${random_pet.s3_bucket_name.id}-${var.region}"
+    },var.tags)
 }
 
 resource "aws_s3_bucket_ownership_controls" "main" {
