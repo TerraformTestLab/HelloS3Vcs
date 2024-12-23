@@ -3,6 +3,11 @@ variable "bucket_name" {
   type        = string
 }
 
+variable "region" {
+  description = "The AWS region in which the S3 bucket will be created"
+  type        = string
+}
+
 variable "tags" {
   description = "A map of tags to assign to the bucket"
   type        = map(string)
