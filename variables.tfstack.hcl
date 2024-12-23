@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: MPL-2.0
 
 variable "regions" {
+  description = "The AWS region in which to create the S3 bucket"
   type = set(string)
 }
 
@@ -11,11 +12,13 @@ variable "bucket_name" {
 }
 
 variable "identity_token" {
+  description = "The identity token to use for assuming the role"
   type      = string
   ephemeral = true
 }
 
 variable "role_arn" {
+  description = "The ARN of the role to assume"
   type = string
 }
 
