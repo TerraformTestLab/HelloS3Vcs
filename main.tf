@@ -4,14 +4,21 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 5.0"
     }
+
+    random = {
+      source  = "hashicorp/random"
+      version = "~> 3.1"
+    }
   }
 
   backend remote {
     organization = "SujaysTerraformLab"
     workspaces {
-      name = "HelloS3Vcs"
+      name = "workspace01"
     }
   }
+
+    required_version = "~>1.10"
 }
 
 
@@ -20,12 +27,10 @@ provider "aws" {
 }
 
 module "s3_bucket" {
-  source      = "./modules/s3"
-  bucket_name = var.bucket_name
-  tags = merge(var.tags, {
-    Name = var.bucket_name
-    UpdatedAt = timestamp()
-  })
+  source            = "./modules/s3"
+  bucket_name       = var.bucket_name
+  tags              = var.tags
   enable_versioning = var.enable_versioning
   enable_encryption = var.enable_encryption
+  region            = var.region
 }
