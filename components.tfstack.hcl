@@ -8,9 +8,9 @@ component "s3" {
 
   inputs = {
     region      = each.value
-    bucket_name = var.bucket_name
+    bucket_name = "${var.bucket_name}-${each.value}"
     tags = merge(var.default_tags, {
-      Name      = var.bucket_name
+      Name      = "${var.bucket_name}-${each.value}"
       UpdatedAt = timestamp()
     })
     enable_versioning = var.enable_versioning
