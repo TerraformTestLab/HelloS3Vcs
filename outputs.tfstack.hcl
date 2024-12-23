@@ -14,3 +14,9 @@ output "bucket_names" {
   description = "The names of the created S3 buckets"
   value       = [for bucket in component.s3 : bucket.bucket_name]
 }
+
+output "bucket_arns" {
+  type        = list(string)
+  description = "The ARNs of the created S3 buckets"
+  value       = [for bucket in component.s3 : bucket.bucket_arn]
+}

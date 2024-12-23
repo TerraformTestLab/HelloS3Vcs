@@ -11,7 +11,6 @@ component "s3" {
     bucket_name = "${var.bucket_name}-${each.value}"
     tags = merge(var.default_tags, {
       Name      = "${var.bucket_name}-${each.value}"
-      UpdatedAt = timestamp()
     })
     enable_versioning = var.enable_versioning
     enable_encryption = var.enable_encryption
