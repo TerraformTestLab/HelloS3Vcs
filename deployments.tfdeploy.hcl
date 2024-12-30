@@ -9,5 +9,11 @@ deployment "development" {
     enable_encryption = true
     identity_token    = identity_token.aws.jwt
     role_arn          = "arn:aws:iam::668081019392:role/stacks-SujaysTerraformLab-HelloS3Vcs"
+    tags = {
+      CanDelete    = "true"
+      Organization = "SujaysTerraformLab"
+      Project      = "HelloS3Vcs"
+      ManagedBy    = "Terraform"
+    }
   }
 }

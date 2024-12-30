@@ -1,17 +1,14 @@
 required_providers {
-  random = {
-    source  = "hashicorp/random"
-    version = "~> 3.1"
-  }
-
   aws = {
     source  = "hashicorp/aws"
     version = "~> 5.0"
   }
 
-}
+  random = {
+    source  = "hashicorp/random"
+    version = "~> 3.1"
+  }
 
-provider "random" "this" {
 }
 
 provider "aws" "this" {
@@ -27,5 +24,8 @@ provider "aws" "this" {
       tags = var.tags
     }
   }
+}
+
+provider "random" "this" {
 }
 
