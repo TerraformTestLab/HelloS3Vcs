@@ -40,3 +40,4 @@ terraform.rc
 
 # Ignore the stacks related files
 tf-stack-poc
+configs
