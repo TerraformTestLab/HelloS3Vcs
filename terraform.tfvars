@@ -7,4 +7,5 @@ tags = {
   Organization = "SujaysTerraformLab"
   Project      = "HelloS3Vcs"
   ManagedBy    = "Terraform"
+  Creator = "Sujay"
 }
