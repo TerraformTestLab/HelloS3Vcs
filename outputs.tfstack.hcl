@@ -22,3 +22,10 @@ output "state_update_at" {
   type        = string
 }
 
+output "name" {
+  description = "The name of the stack"
+  value       = "Sujay"
+  type        = string
+  
+}
+
