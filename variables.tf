@@ -12,7 +12,7 @@ variable "bucket_name" {
 
 variable "tags" {
   description = "A map of tags to assign to the bucket"
-  type = map(string)
+  type        = map(string)
 }
 
 variable "enable_versioning" {
